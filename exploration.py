@@ -76,22 +76,11 @@ def clean_str_nan(s):
         return ""
     return s
 df["Type de voie"] = df["Type de voie"].apply(clean_str_nan)
-df["prix au m2"][selec].describe()
+df["Voie"] = df["Voie"].apply(clean_str_nan)
 
 
 #%%
 remove_out(df["prix au m2"][selec]).describe()
-
-
-#%%
-
-
-
-#%%
-remove_out(df["prix au m2"][selec])
-
-
-#%%
 
 
 

@@ -23,7 +23,8 @@ url = "http://www.mapquestapi.com/geocoding/v1/batch"
 def submit_data(locations):
     """ Use mapquest api to request GPS coordinates from the address
     """
-    req = requests.get(url, params=locations)
+    dico = {"maxResults":1, "location":locations, "key":key}
+    req = requests.get(url, params=dico)
     return json.loads(req.text)['results']
 
 def  line_to_location_string(serie):
@@ -41,6 +42,6 @@ def get_all_location_string(df):
   location = df.apply(line_to_location_string, axis=1)
   return location.unique()
 
-from exploration import df
-toto = get_all_location_string(df)
-toto
+# from exploration import df
+# toto = get_all_location_string(df)
+# toto
